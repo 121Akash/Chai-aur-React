@@ -4,6 +4,7 @@ import Support from "./components/Support";
 import Notfound from "./components/Notfound";
 import About from "./components/About";
 import Labs from "./components/Labs";
+import MainHeader from "./MainHeader";
 
 
  function App() {
@@ -24,7 +25,7 @@ import Labs from "./components/Labs";
           </li>
 
           <li>
-            <NavLink to= "/labs">labs </NavLink>
+            <NavLink to= "/labs">labs  </NavLink>
           </li>
       </ul>
 
@@ -40,12 +41,16 @@ import Labs from "./components/Labs";
 
 
         <Routes>
-          <Route path="/" element ={<Home/>}></Route>
+          <Route path="/" element ={<MainHeader/>}>
+          {/* Default route */}
+          <Route index element ={<Home/>}/>
           <Route path="/support" element ={<Support/>}></Route>
           <Route path="/about" element ={<About/>}></Route>
           <Route path="/labs" element ={<Labs/>}></Route>
           <Route path="*" element ={<Notfound/>}></Route>
+          </Route>
         </Routes>
+        
     </div>
   );
 }
